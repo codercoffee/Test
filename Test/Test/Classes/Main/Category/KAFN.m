@@ -7,6 +7,7 @@
 //
 
 #import "KAFN.h"
+#import <AFNetworking.h>
 
 @implementation KAFN
 
@@ -52,6 +53,87 @@
     
     return params;
 }
+
+
++ (void)kGet:(NSString *)URLString parameters:(id)parameters success:(void(^)(NSDictionary * dict))success failure:(void(^)())failue;
+{
+    AFHTTPSessionManager *manager = [self createManager];
+    
+    [manager GET:URLString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        
+        success(dict);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        
+    }];
+    
+//    [manager GET:requestURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        
+//        NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:nil];
+//        
+//        success(dict);
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        
+//        failue();
+//    }];
+}
+
++ (void)kPost:(NSString *)url :(NSDictionary *)dict success:(void(^)(NSDictionary * dict))success failure:(void(^)())failue
+{
+//    AFHTTPRequestOperationManager * manager = [self createManager];
+//    
+//    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation * operation, id responseObject) {
+//        
+//        NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:nil];
+//        
+//        success(dict);
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        
+//        failue();
+//    }];
+}
+
+
+
+
+
+- (NSString *)createQuaryString:(NSDictionary *)dict
+{
+    NSMutableString * result = [NSMutableString stringWithCapacity:0];
+    
+    for(NSString * value in [dict allValues])
+    {
+        [result appendFormat:@"%@/",value];
+    }
+    
+    return [result substringToIndex:result.length - 1];
+}
+
++ (AFHTTPSessionManager *)createManager
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    // 请求时间
+    manager.requestSerializer.timeoutInterval = 20.0;
+    // 是否允许CA不信任的证书通过
+    manager.securityPolicy.allowInvalidCertificates = YES;
+    // 是否验证主机名
+    manager.securityPolicy.validatesDomainName = NO;
+    // 接受数据格式
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
+    // 服务器返回数据解析方式
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    return manager;
+}
+
+
 
 
 @end

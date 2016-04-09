@@ -29,4 +29,12 @@
  */
 + (NSMutableDictionary *)kDealParamsOfUrl:(NSString *)url params:(NSMutableDictionary *)params;
 
+
+
++ (void)kGet:(NSString *)URLString parameters:(id)parameters success:(void(^)(NSDictionary * dict))success failure:(void(^)())failue;
+
+
++ (void)kPost:(NSString *)url :(NSDictionary *)dict success:(void(^)(NSDictionary * dict))success failure:(void(^)())failue;
+
+
 @end

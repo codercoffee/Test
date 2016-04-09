@@ -18,6 +18,10 @@
 		A2323CAE1CB8E87D00437311 /* UIScreen+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A2323CA01CB8E87D00437311 /* UIScreen+Extension.m */; };
 		A2323CAF1CB8E87D00437311 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A2323CA21CB8E87D00437311 /* UIView+Extension.m */; };
 		A2323CB01CB8E87D00437311 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2323CA51CB8E87D00437311 /* NavigationController.m */; };
+		A2323CB81CB8EA4F00437311 /* QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2323CB41CB8EA4F00437311 /* QRScanViewController.m */; };
+		A2323CB91CB8EA4F00437311 /* QRView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2323CB71CB8EA4F00437311 /* QRView.m */; };
+		A2323CBE1CB8EB7300437311 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A2323CBB1CB8EB7300437311 /* UIBarButtonItem+Extension.m */; };
+		A2323CBF1CB8EB7300437311 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = A2323CBD1CB8EB7300437311 /* UIImage+Color.m */; };
 		A2E255A71CA50DB20083E26B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E255A51CA50DB20083E26B /* Main.storyboard */; };
 		A2E255A91CA50DB20083E26B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E255A81CA50DB20083E26B /* Assets.xcassets */; };
 		A2E255AC1CA50DB20083E26B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E255AA1CA50DB20083E26B /* LaunchScreen.storyboard */; };
@@ -65,6 +69,14 @@
 		A2323CA21CB8E87D00437311 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		A2323CA41CB8E87D00437311 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		A2323CA51CB8E87D00437311 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		A2323CB31CB8EA4F00437311 /* QRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanViewController.h; sourceTree = "<group>"; };
+		A2323CB41CB8EA4F00437311 /* QRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanViewController.m; sourceTree = "<group>"; };
+		A2323CB61CB8EA4F00437311 /* QRView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRView.h; sourceTree = "<group>"; };
+		A2323CB71CB8EA4F00437311 /* QRView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRView.m; sourceTree = "<group>"; };
+		A2323CBA1CB8EB7300437311 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		A2323CBB1CB8EB7300437311 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		A2323CBC1CB8EB7300437311 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
+		A2323CBD1CB8EB7300437311 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		A2E255991CA50DB20083E26B /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E255A61CA50DB20083E26B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A2E255A81CA50DB20083E26B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -165,6 +177,10 @@
 			isa = PBXGroup;
 			children = (
 				A2323C981CB8E87D00437311 /* KCategory.h */,
+				A2323CBA1CB8EB7300437311 /* UIBarButtonItem+Extension.h */,
+				A2323CBB1CB8EB7300437311 /* UIBarButtonItem+Extension.m */,
+				A2323CBC1CB8EB7300437311 /* UIImage+Color.h */,
+				A2323CBD1CB8EB7300437311 /* UIImage+Color.m */,
 				A2323C961CB8E87D00437311 /* KAFN.h */,
 				A2323C971CB8E87D00437311 /* KAFN.m */,
 				A2323C991CB8E87D00437311 /* KColor.h */,
@@ -214,6 +230,33 @@
 		A2323CA91CB8E87D00437311 /* View */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A2323CB11CB8EA4F00437311 /* QRScan */ = {
+			isa = PBXGroup;
+			children = (
+				A2323CB21CB8EA4F00437311 /* Controller */,
+				A2323CB51CB8EA4F00437311 /* View */,
+			);
+			path = QRScan;
+			sourceTree = "<group>";
+		};
+		A2323CB21CB8EA4F00437311 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A2323CB31CB8EA4F00437311 /* QRScanViewController.h */,
+				A2323CB41CB8EA4F00437311 /* QRScanViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A2323CB51CB8EA4F00437311 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A2323CB61CB8EA4F00437311 /* QRView.h */,
+				A2323CB71CB8EA4F00437311 /* QRView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,6 +328,7 @@
 		A2E2560C1CA5166D0083E26B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A2323CB11CB8EA4F00437311 /* QRScan */,
 				A2323C8D1CB8E86700437311 /* Test */,
 				A2323C941CB8E87D00437311 /* Main */,
 			);
@@ -484,10 +528,14 @@
 				A2323CAC1CB8E87D00437311 /* KString.m in Sources */,
 				A2323C3E1CB8E3FA00437311 /* AppDelegate.m in Sources */,
 				A2323CAA1CB8E87D00437311 /* KAFN.m in Sources */,
+				A2323CB81CB8EA4F00437311 /* QRScanViewController.m in Sources */,
+				A2323CB91CB8EA4F00437311 /* QRView.m in Sources */,
 				A2323C931CB8E86700437311 /* RootViewController.m in Sources */,
 				A2323C401CB8E41100437311 /* main.m in Sources */,
 				A2323CAE1CB8E87D00437311 /* UIScreen+Extension.m in Sources */,
+				A2323CBF1CB8EB7300437311 /* UIImage+Color.m in Sources */,
 				A2323CB01CB8E87D00437311 /* NavigationController.m in Sources */,
+				A2323CBE1CB8EB7300437311 /* UIBarButtonItem+Extension.m in Sources */,
 				A2323CAB1CB8E87D00437311 /* KColor.m in Sources */,
 				A2323CAD1CB8E87D00437311 /* NSString+MD5.m in Sources */,
 			);

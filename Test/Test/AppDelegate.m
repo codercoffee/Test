@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "NavigationController.h"
 #import "RootViewController.h"
+#import "QRScanViewController.h"
 
 @interface AppDelegate ()
 
@@ -25,8 +26,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     // 创建根视图控制器
-    
     RootViewController *rootVC = [[RootViewController alloc] init];
+    
+    QRScanViewController *qrScanVC = [[QRScanViewController alloc] init];
     NavigationController *navigationC = [[NavigationController alloc] initWithRootViewController:rootVC];
     self.window.rootViewController = navigationC;
     

@@ -10,9 +10,16 @@
 
 @implementation KColor
 
+/**
+ *  用十六进制颜色字符串来设置颜色
+ *
+ *  @param stringToConvert 十六进制颜色字符串
+ *
+ *  @return RGB颜色
+ */
 + (UIColor *)kColorWithHexString:(NSString *)stringToConvert
 {
-    //从字符串中去除空格和换行
+    // 从字符串中去除空格和换行
     NSString *cString = [[stringToConvert stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     
     // String should be 6 or 8 characters
@@ -47,16 +54,19 @@
                            alpha:1.0f];
 }
 
-
+/**
+ *  把随机色转换为十六进制颜色
+ *
+ *  @return 十六进制颜色
+ */
 + (NSString *)kRandomColorToHexString
 {
-    NSMutableString * mColors = [NSMutableString stringWithCapacity:0];
-    NSString * R = [NSString stringWithFormat:@"%02x",arc4random()%256];
-    NSString * G = [NSString stringWithFormat:@"%02x",arc4random()%256];
-    NSString * B = [NSString stringWithFormat:@"%02x",arc4random()%256];
-    [mColors appendFormat:@"%@%@%@",R,G,B];
+    NSMutableString *mColors = [NSMutableString stringWithCapacity:0];
+    NSString *R = [NSString stringWithFormat:@"%02x", arc4random()%256];
+    NSString *G = [NSString stringWithFormat:@"%02x", arc4random()%256];
+    NSString *B = [NSString stringWithFormat:@"%02x", arc4random()%256];
+    [mColors appendFormat:@"%@%@%@", R, G, B];
     return mColors;
 }
-
 
 @end

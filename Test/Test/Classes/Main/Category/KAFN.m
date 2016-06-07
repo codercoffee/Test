@@ -11,6 +11,13 @@
 
 @implementation KAFN
 
+/**
+ *  截取带参数的url
+ *
+ *  @param url 原url
+ *
+ *  @return 截取出的不带参数的url
+ */
 + (NSString *)kCaptureUrl:(NSString *)url
 {
     if ([url rangeOfString:@"?"].location != NSNotFound)
@@ -21,6 +28,14 @@
     return url;
 }
 
+/**
+ *  提取url本身自带参数
+ *
+ *  @param url 注意：这里传进来的是没处理之前的url
+ *  @param params 参数字典
+ *
+ *  @return 添加参数后的字典
+ */
 + (NSMutableDictionary *)kDealParamsOfUrl:(NSString *)url params:(NSMutableDictionary *)params
 {
     if ([url rangeOfString:@"?"].location != NSNotFound)
@@ -39,7 +54,6 @@
                 params[keyStr] = valueStr;
 //                NSLog(@"参数：%@=%@", keyStr, valueStr);
             }
-            
         }
         else
         {
@@ -50,7 +64,6 @@
 //            NSLog(@"参数：%@=%@", keyStr, valueStr);
         }
     }
-    
     return params;
 }
 

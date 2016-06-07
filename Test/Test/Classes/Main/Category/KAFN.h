@@ -36,5 +36,4 @@
 
 + (void)kPost:(NSString *)url :(NSDictionary *)dict success:(void(^)(NSDictionary * dict))success failure:(void(^)())failue;
 
-
 @end

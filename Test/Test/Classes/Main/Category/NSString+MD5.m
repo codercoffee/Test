@@ -11,9 +11,14 @@
 
 @implementation NSString (MD5)
 
+/**
+ *  MD5加密
+ *
+ *  @return 加密后的32位字符串
+ */
 - (NSString *)md5
 {
-    const char* cStr = [self UTF8String];
+    const char *cStr = [self UTF8String];
     unsigned char digest[CC_MD5_DIGEST_LENGTH];
     CC_MD5(cStr, (unsigned int)strlen(cStr), digest);
     
@@ -25,10 +30,14 @@
     return result;
 }
 
+/**
+ *  MD5加密
+ *
+ *  @return 加密后的32位字符串
+ */
 + (NSString *)md5:(NSString *)str
 {
     return [str md5];
 }
-
 
 @end

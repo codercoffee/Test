@@ -8,6 +8,11 @@
 
 */
 
+//1.iPhone4分辨率320x480，像素640x960，@2x
+//2.iPhone5分辨率320x568，像素640x1136，@2x
+//3.iPhone6分辨率375x667，像素750x1334，@2x
+//4.iPhone6 Plus分辨率414x736，像素1242x2208，@3x
+
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "UIView+Extension.h"
@@ -20,7 +25,7 @@
 #import "UIImage+Color.h"
 
 /** 打印输出 */
-#ifdef DEBUG  // 调试阶段
+#ifdef DEBUG // 调试阶段
 #define KLog(...) NSLog(__VA_ARGS__)
 #else // 发布阶段
 #define KLog(...)
@@ -34,6 +39,9 @@
 #define kCOLOR(R ,G ,B ,A) [UIColor colorWithRed:(R) / 255.0 green:(G) / 255.0 blue:(B) / 255.0 alpha:A]
 // 随机色
 #define kRandomColor kCOLOR(arc4random() % 256, arc4random() % 256, arc4random() % 256, 1)
+
+// 图片
+#define kImage(image) [UIImage imageNamed:image]
 
 // 各种view按手机屏幕大小缩放时，用到的基准宽和高
 #define kScaleWidth(width)  (SCREEN_WIDTH / 375 * width)

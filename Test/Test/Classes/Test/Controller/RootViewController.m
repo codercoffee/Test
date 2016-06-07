@@ -23,15 +23,22 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    NSString *url = @"http://www.weather.com.cn/data/cityinfo/101010100.html";
+    NSString *randomString = [KColor kRandomColorToHexString];
+    KLog(@"randomString = %@", randomString);
     
-    [KAFN kGet:url parameters:nil success:^(NSDictionary *dict) {
-        
-        KLog(@"%@", dict);
-        
-    } failure:^{
-        
-    }];
+    
+    
+    
+    
+//    NSString *url = @"http://www.weather.com.cn/data/cityinfo/101010100.html";
+//    
+//    [KAFN kGet:url parameters:nil success:^(NSDictionary *dict) {
+//        
+//        KLog(@"%@", dict);
+//        
+//    } failure:^{
+//        
+//    }];
     
     
     

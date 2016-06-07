@@ -39,7 +39,9 @@ static NSTimeInterval kQrLineanimateDuration = 0.01;
     }
 }
 
-// 初始化扫描框
+/**
+ *  初始化扫描框
+ */
 - (void)initQRBox
 {
     CGRect screenBounds = [UIScreen screenBounds];
@@ -52,7 +54,9 @@ static NSTimeInterval kQrLineanimateDuration = 0.01;
     [self addSubview:qrBox];
 }
 
-// 初始化扫描线
+/**
+ *  初始化扫描线
+ */
 - (void)initQRLine
 {
     CGRect screenBounds = [UIScreen screenBounds];
@@ -67,7 +71,9 @@ static NSTimeInterval kQrLineanimateDuration = 0.01;
     qrLineY = qrLine.frame.origin.y;
 }
 
-
+/**
+ *  展示扫描框和扫描线
+ */
 - (void)show
 {
     [UIView animateWithDuration:kQrLineanimateDuration animations:^{
@@ -105,18 +111,18 @@ static NSTimeInterval kQrLineanimateDuration = 0.01;
 //        }
         
     }];
-    
 }
 
-
-
+/**
+ *  绘制二维码扫描框
+ */
 - (void)drawRect:(CGRect)rect
 {
-    //整个二维码扫描界面的颜色
+    // 整个二维码扫描界面的颜色
     CGSize screenSize = [UIScreen screenBounds].size;
     CGRect screenDrawRect = CGRectMake(0, 0, screenSize.width, screenSize.height);
     
-    //中间清空的矩形框
+    // 中间清空的矩形框
     CGRect clearDrawRect = CGRectMake(screenDrawRect.size.width / 2 - self.transparentArea.width / 2,
                                       screenDrawRect.size.height / 2 - self.transparentArea.height / 2,
                                       self.transparentArea.width,
@@ -134,20 +140,26 @@ static NSTimeInterval kQrLineanimateDuration = 0.01;
     
 }
 
-// 透明层
+/**
+ *  透明层
+ */
 - (void)addScreenFillRect:(CGContextRef)ctx rect:(CGRect)rect
 {
     CGContextSetRGBFillColor(ctx, 40 / 255.0, 40 / 255.0, 40 / 255.0, 0.5);
     CGContextFillRect(ctx, rect);   //draw the transparent layer
 }
 
-// 扫描区域
+/**
+ *  扫描区域
+ */
 - (void)addCenterClearRect :(CGContextRef)ctx rect:(CGRect)rect
 {
     CGContextClearRect(ctx, rect);  //clear the center rect  of the layer
 }
 
-// 白色扫描区域框
+/**
+ *  白色扫描区域框
+ */
 - (void)addWhiteRect:(CGContextRef)ctx rect:(CGRect)rect
 {
     CGContextStrokeRect(ctx, rect);
@@ -157,14 +169,16 @@ static NSTimeInterval kQrLineanimateDuration = 0.01;
     CGContextStrokePath(ctx);
 }
 
-// 边角
+/**
+ *  边角
+ */
 - (void)addCornerLineWithContext:(CGContextRef)ctx rect:(CGRect)rect
 {
-    //画四个边角
+    // 画四个边角
     CGContextSetLineWidth(ctx, 2);
     CGContextSetRGBStrokeColor(ctx, 38 / 255.0, 91 / 255.0, 170 / 255.0, 1);//绿色
 
-    //左上角
+    // 左上角
     CGPoint poinsTopLeftA[] = {
         CGPointMake(rect.origin.x + 0.7, rect.origin.y),
         CGPointMake(rect.origin.x + 0.7, rect.origin.y + 15)
@@ -175,7 +189,7 @@ static NSTimeInterval kQrLineanimateDuration = 0.01;
     };
     [self addLine:poinsTopLeftA pointB:poinsTopLeftB ctx:ctx];
 
-    //左下角
+    // 左下角
     CGPoint poinsBottomLeftA[] = {
         CGPointMake(rect.origin.x + 0.7, rect.origin.y + rect.size.height - 15),
         CGPointMake(rect.origin.x + 0.7, rect.origin.y + rect.size.height)
@@ -186,7 +200,7 @@ static NSTimeInterval kQrLineanimateDuration = 0.01;
     };
     [self addLine:poinsBottomLeftA pointB:poinsBottomLeftB ctx:ctx];
 
-    //右上角
+    // 右上角
     CGPoint poinsTopRightA[] = {
         CGPointMake(rect.origin.x + rect.size.width - 15, rect.origin.y + 0.7),
         CGPointMake(rect.origin.x + rect.size.width,rect.origin.y + 0.7 )
@@ -197,7 +211,7 @@ static NSTimeInterval kQrLineanimateDuration = 0.01;
     };
     [self addLine:poinsTopRightA pointB:poinsTopRightB ctx:ctx];
     
-    //右下角
+    // 右下角
     CGPoint poinsBottomRightA[] = {
         CGPointMake(rect.origin.x + rect.size.width - 0.7 , rect.origin.y + rect.size.height - 15),
         CGPointMake(rect.origin.x - 0.7 + rect.size.width,rect.origin.y + rect.size.height )
@@ -209,15 +223,15 @@ static NSTimeInterval kQrLineanimateDuration = 0.01;
     [self addLine:poinsBottomRightA pointB:poinsBottomRightB ctx:ctx];
     
     CGContextStrokePath(ctx);
-
 }
 
-
+/**
+ *  画线
+ */
 - (void)addLine:(CGPoint[])pointA pointB:(CGPoint[])pointB ctx:(CGContextRef)ctx
 {
     CGContextAddLines(ctx, pointA, 2);
     CGContextAddLines(ctx, pointB, 2);
 }
-
 
 @end

@@ -17,7 +17,6 @@
     AVCaptureMetadataOutput *output;
     AVCaptureSession *session;
     AVCaptureVideoPreviewLayer *preview;
-
 }
 
 @property (nonatomic, strong) QRView *qrView;
@@ -31,12 +30,11 @@
 {
     [super viewDidLoad];
     
-/* 设置导航栏上面的内容 */
+    // 设置导航栏上面的内容
     self.title = @"扫一扫";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:kCOLOR(67, 43, 43, 1)}];
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(backButtonClick) image:@"ico_back" highLightedImage:@"ico_back"];
-    
     
     // 默认配置
     [self defaultConfig];
@@ -55,7 +53,6 @@
     CGFloat promptLabelY = kScaleHeight(130);
     promptLabel.frame = CGRectMake(promptLabelX, promptLabelY, promptSize.width, promptSize.height);
     [self.view addSubview:promptLabel];
-    
 }
 
 /**
@@ -95,7 +92,6 @@
     
     // 6. 启动会话
     [session startRunning];
-    
 }
 
 /**
@@ -125,11 +121,11 @@
                                           cropRect.size.width / SCREEN_WIDTH)];
 }
 
+#pragma mark - AVCaptureMetadataOutputObjectsDelegate
 
 /**
  *  执行扫描完之后的代码，stringValue是扫描结果
  */
-#pragma mark - AVCaptureMetadataOutputObjectsDelegate
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
     NSString *stringValue;
@@ -159,8 +155,8 @@
     
 }
 
-
 #pragma mark - getter and setter
+
 -(QRView *)qrView
 {
     if (!_qrView)
@@ -181,8 +177,8 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - view life cycle
 
-#pragma mark - 视图即将出现，视图即将消失
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -191,8 +187,8 @@
     {
         [self defaultConfig];
     }
-    
 }
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -201,6 +197,5 @@
     [session stopRunning];
     [_maskView removeFromSuperview];
 }
-
 
 @end
